@@ -1,0 +1,24 @@
+# Node modules
+node_modules/
+# Cypress output
+cypress/screenshots/
+cypress/videos/
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE/editor folders
+.vscode/
+.idea/
+
+# Coverage reports
+coverage/
