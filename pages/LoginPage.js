@@ -1,40 +1,29 @@
+import * as CF from "./common";
 import loginLocator from "../resources/locators/login.locator";
 
 class LoginPage {
   goToLoginPage() {
-    cy.xpath(loginLocator.btn_menu_login, { timeout: 10000 })
-      .should("be.visible")
-      .click();
+    CF.clickElement(loginLocator.btn_menu_login);
   }
 
   fillUsername(username) {
-    cy.xpath(loginLocator.txt_username_input, { timeout: 10000 })
-      .should("be.visible")
-      .type(username);
+    CF.fillInput(loginLocator.txt_username_input, username);
   }
 
   fillPassword(password) {
-    cy.xpath(loginLocator.txt_password_input, { timeout: 10000 })
-      .should("be.visible")
-      .type(password);
+    CF.fillInput(loginLocator.txt_password_input, password);
   }
 
   submit() {
-    cy.xpath(loginLocator.btn_login_button, { timeout: 10000 })
-      .should("be.visible")
-      .click();
+    CF.clickElement(loginLocator.btn_login_button);
   }
 
   veryfyLoginSuccess() {
-    cy.xpath(loginLocator.btn_menu_login, { timeout: 10000 }).should(
-      "not.exist"
-    );
+    CF.verifyElementNotVisible(loginLocator.btn_menu_login);
   }
 
   verifyErrorMessage() {
-    cy.xpath(loginLocator.txt_error_messeges, { timeout: 10000 }).should(
-      "be.visible"
-    );
+    CF.verifyElementVisible(loginLocator.txt_error_messeges);
   }
 
   loginAs(username, password) {

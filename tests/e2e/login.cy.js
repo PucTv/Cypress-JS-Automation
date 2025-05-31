@@ -1,4 +1,5 @@
 import LoginPage from "../../pages/LoginPage";
+import * as CF from "../../pages/common";
 
 describe("Login Tests", () => {
   it("should show error message with invalid credentials", () => {
@@ -6,7 +7,9 @@ describe("Login Tests", () => {
     LoginPage.verifyErrorMessage();
   });
   it("should login successfully with valid credentials", () => {
-    LoginPage.loginAs("shino1@gmail.com", "123456");
-    LoginPage.veryfyLoginSuccess();
+    CF.readJsonFile("data").then((data) => {
+      LoginPage.loginAs(data.username, data.password);
+      LoginPage.veryfyLoginSuccess();
+    });
   });
 });
